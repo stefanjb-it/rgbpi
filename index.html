@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<title>
+    RGB_PI
+</title>
+
+<body>
+    <h1>Change the LED color</h1>
+    <!-- create buttons for leds turn on or turn off function -->
+    <button id="R" style="color:black">Red</button>
+    <button id="G" style="color:black">Green</button>
+    <button id="B" style="color:black">Blue</button>
+</body>
+
+<script>
+    document.getElementById("R").addEventListener("click", function () {                        //add an eventListener to the created button --> react when button get pressed
+        fetch('/r', {                                                                           //method to send a diffrent request to the webserver with '/r' url --> if not nearly specified the address of the running server will be used and '/r' will be added to url
+            method: "post",                                                                     //specify the type of method --> post --> send to the server and not asking the server --> reponse available
+            body: JSON.stringify({ item: 1 })                                                   //set the body content --> JSON.stringify --> makes correct json out of js object
+        })
+            .then(response => response.text())                                                  //take the text out of the response and handle it over
+            .then(data => {                                                                     //the text is now the data
+                const rep = JSON.parse(data);                                                   //parse a JSON object out of the data
+                if (rep.rep == 0) {                                                             //check the state of the response 
+                    document.getElementById("R").style.background = "rgba(128,128,128,1)"       //set background color of button R to grey
+                }
+                else {
+                    document.getElementById("R").style.background = "rgba(255,0,0,1)"           //set background color of button R to red
+                }
+            });
+    });
+    document.getElementById("G").addEventListener("click", function () {                        //add an eventListener to the created button --> react when button get pressed
+        fetch('/g', {                                                                           //method to send a diffrent request to the webserver with '/r' url --> if not nearly specified the address of the running server will be used and '/r' will be added to url
+            method: "post",                                                                     //specify the type of method --> post --> send to the server and not asking the server --> reponse available
+            body: JSON.stringify({ item: 1 })                                                   //set the body content --> JSON.stringify --> makes correct json out of js object
+        })
+            .then(response => response.text())                                                  //take the text out of the response and handle it over
+            .then(data => {                                                                     //the text is now the data
+                const rep = JSON.parse(data);                                                   //parse a JSON object out of the data
+                if (rep.rep == 0) {                                                             //check the state of the response 
+                    document.getElementById("G").style.background = "rgba(128,128,128,1)"       //set background color of button G to grey
+                }
+                else {
+                    document.getElementById("G").style.background = "rgba(0,255,0,1)"           //set background color of button G to green
+                }
+            });
+    });
+    document.getElementById("B").addEventListener("click", function () {                        //add an eventListener to the created button --> react when button get pressed
+        fetch('/b', {                                                                           //method to send a diffrent request to the webserver with '/r' url --> if not nearly specified the address of the running server will be used and '/r' will be added to url
+            method: "post",                                                                     //specify the type of method --> post --> send to the server and not asking the server --> reponse available
+            body: JSON.stringify({ item: 1 })                                                   //set the body content --> JSON.stringify --> makes correct json out of js object
+        })
+            .then(response => response.text())                                                  //take the text out of the response and handle it over
+            .then(data => {                                                                     //the text is now the data
+                const rep = JSON.parse(data);                                                   //parse a JSON object out of the data
+                if (rep.rep == 0) {                                                             //check the state of the response 
+                    document.getElementById("B").style.background = "rgba(128,128,128,1)"       //set background color of button B to grey
+                }
+                else {
+                    document.getElementById("B").style.background = "rgba(0,0,255,1)"           //set background color of button B to blue
+                }
+            });
+    });
+</script>
+
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "rgbpijs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon",
+    "start": "node server.js"
+  },
+  "author": "SJB",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pigpio": "^3.1.0"
+  }
+}
